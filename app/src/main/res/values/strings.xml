@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">HClient</string>
+    <string name="title_activity_home">Home</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="forgot_pwd">Forgot Password?</string>
+    <string name="facebook_app_id">282745169112785</string>
+    <string name="facbook_login_portal_name">fb282745169112785</string>
+    <string name="account_kit_client_token">208fa9204ab6786ed2fd3e3892bc2049</string>
+</resources>

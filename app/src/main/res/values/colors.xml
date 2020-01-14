@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#25B7D3</color>
+    <color name="colorPrimaryDark">#0087a2</color>
+    <color name="colorAccent">#ec4960</color>
+    <color name="background">#676357</color>
+
+    <color name="btnSignUp">#39796b</color>
+    <color name="btnSignIn">#333639</color>
+    <color name="btnSignActive">#A9d440</color>
+
+    <color name="overlayBackground">#7f333639</color>
+    <color name="overlayActionBar">#0e0d0e</color>
+
+    <color name="theme1">#ec4960</color>
+    <color name="theme2">#20b2aa</color>
+    <color name="line">#fadadd</color>
+    <color name="comment">#FF0000</color>
+
+    <color name="bgRowBackground">#FA315B</color>
+</resources>
