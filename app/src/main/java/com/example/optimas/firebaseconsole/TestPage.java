@@ -217,7 +217,7 @@ public class TestPage extends AppCompatActivity
 
         //Load menu
         recycler_menu=(RecyclerView)findViewById(R.id.recycle_menu);
-        recycler_menu.setLayoutManager(new GridLayoutManager(this,1));
+        recycler_menu.setLayoutManager(new GridLayoutManager(this,3));
         LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(recycler_menu.getContext(),
                 R.anim.layout_fall_down);
         recycler_menu.setLayoutAnimation(controller);
