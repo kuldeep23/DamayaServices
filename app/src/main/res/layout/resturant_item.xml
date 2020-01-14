@@ -40,7 +40,7 @@
                         android:layout_marginLeft="10dp"
                         android:gravity="center_vertical|start"
                         android:text="Food 01"
-                        android:textSize="18sp"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <!-- <TextView
