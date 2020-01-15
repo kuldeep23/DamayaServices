@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FirebaseConsole.iml" filepath="$PROJECT_DIR$/FirebaseConsole.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DamayaServices.iml" filepath="$PROJECT_DIR$/DamayaServices.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -78,6 +78,7 @@ public class Home extends AppCompatActivity
     RecyclerView recycler_menu;
     RecyclerView.LayoutManager layoutManager;
 
+
     FirebaseRecyclerAdapter<Category,MenuViewHolder> adapter;
 
     SwipeRefreshLayout swipeRefreshLayout;
