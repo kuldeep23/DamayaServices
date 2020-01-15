@@ -274,6 +274,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:weightSum="2"
+
             android:layout_alignParentBottom="true"
             android:orientation="horizontal">
 
