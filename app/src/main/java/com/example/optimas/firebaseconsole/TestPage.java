@@ -168,9 +168,20 @@ public class TestPage extends AppCompatActivity
                     public void onClick(View view, int position, boolean isLongClick) {
                         // Toast.makeText(Home.this,""+clickItem.getName(),Toast.LENGTH_SHORT).show();
                         //Get CategoryID
-                        Intent foodList=new Intent(TestPage.this,Home.class);
                         Common.restaurantSelected=adapter.getRef(position).getKey();
-                        startActivity(foodList);
+                        switch (Common.restaurantSelected) {
+                            case "01":
+                                Intent sendpackage=new Intent(TestPage.this,SendPackage.class);
+                                startActivity(sendpackage);
+                                break;
+                            case "02":
+                                Intent foodList=new Intent(TestPage.this,Home.class);
+                                startActivity(foodList);
+                                break;
+                            case "03":
+                                Toast.makeText(TestPage.this, "Send ", Toast.LENGTH_SHORT).show();
+                                break;
+                        }
                     }
                 });
             }
@@ -225,7 +236,7 @@ public class TestPage extends AppCompatActivity
 
         updateToken(FirebaseInstanceId.getInstance().getToken());
 
-     //   setupSlider();
+      //  setupSlider();
 
     }
 
@@ -256,15 +267,15 @@ public class TestPage extends AppCompatActivity
                     textSliderView
                             .description(nameofFood)
                             .image(image_list.get(key))
-                            .setScaleType(BaseSliderView.ScaleType.Fit);
-                           /* .setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
+                            .setScaleType(BaseSliderView.ScaleType.Fit)
+                            .setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
                                 @Override
                                 public void onSliderClick(BaseSliderView slider) {
-                                     Intent intent = new Intent(Home.this,FoodDetail.class);
+                                     /*Intent intent = new Intent(Home.this,FoodDetail.class);
                                      intent.putExtras(textSliderView.getBundle());
-                                     startActivity(intent);
+                                     startActivity(intent);*/
                                 }
-                            });*/
+                            });
                            // textSliderView.bundle(new Bundle());
                             Bundle bundle = new Bundle();
                            textSliderView.bundle(bundle);
@@ -287,7 +298,7 @@ public class TestPage extends AppCompatActivity
 
     }
 
-    private void updateToken(String token) {
+        private void updateToken(String token) {
         FirebaseDatabase db= FirebaseDatabase.getInstance();
         DatabaseReference tokens = FirebaseDatabase.getInstance().getReference(/*"Restaurants").child(Common.restaurantSelected).child(*/"Tokens");
         Token data = new Token(token,false);

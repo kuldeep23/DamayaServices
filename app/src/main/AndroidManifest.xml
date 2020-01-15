@@ -16,6 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SendPackage"></activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyC4SevyZzhjY8U69FxBBlzctAfiMW9fpec" />
@@ -42,7 +44,6 @@
             android:name=".Home"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".TestPage"
             android:label="@string/title_activity_home"
@@ -67,7 +68,7 @@
         <activity android:name=".ShowComment" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".FavoritesActivity" />
-        <activity android:name=".RestaurantList"></activity>
+        <activity android:name=".RestaurantList" />
     </application>
 
 </manifest>

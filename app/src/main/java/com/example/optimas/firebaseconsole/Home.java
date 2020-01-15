@@ -250,8 +250,7 @@ public class Home extends AppCompatActivity
                     String idofFood = keySplit[1];
 
                     final TextSliderView textSliderView = new TextSliderView(getBaseContext());
-                    textSliderView
-                            .description(nameofFood)
+                    textSliderView.description(nameofFood)
                             .image(image_list.get(key))
                             .setScaleType(BaseSliderView.ScaleType.Fit);
                            /* .setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {

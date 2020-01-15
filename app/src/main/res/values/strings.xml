@@ -11,4 +11,5 @@
     <string name="facebook_app_id">282745169112785</string>
     <string name="facbook_login_portal_name">fb282745169112785</string>
     <string name="account_kit_client_token">208fa9204ab6786ed2fd3e3892bc2049</string>
+    <string name="title_activity_send_package">SendPackage</string>
 </resources>
