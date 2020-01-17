@@ -216,7 +216,7 @@ public class Home extends AppCompatActivity
 
         //Load menu
         recycler_menu=(RecyclerView)findViewById(R.id.recycle_menu);
-        recycler_menu.setLayoutManager(new GridLayoutManager(this,3));
+        recycler_menu.setLayoutManager(new GridLayoutManager(this,4));
         LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(recycler_menu.getContext(),
                 R.anim.layout_fall_down);
         recycler_menu.setLayoutAnimation(controller);
