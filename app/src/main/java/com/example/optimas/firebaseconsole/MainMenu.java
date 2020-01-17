@@ -3,15 +3,12 @@ package com.example.optimas.firebaseconsole;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -25,12 +22,10 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
-import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.andremion.counterfab.CounterFab;
-import com.crashlytics.android.Crashlytics;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
@@ -38,17 +33,14 @@ import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.example.optimas.firebaseconsole.Common.Common;
 import com.example.optimas.firebaseconsole.Database.Database;
 import com.example.optimas.firebaseconsole.Interface.ItemClickListener;
-import com.example.optimas.firebaseconsole.Model.Banner;
 import com.example.optimas.firebaseconsole.Model.Category;
 import com.example.optimas.firebaseconsole.Model.MainBanner;
 import com.example.optimas.firebaseconsole.Model.Token;
-import com.example.optimas.firebaseconsole.ViewHolder.MenuViewHolder;
 import com.example.optimas.firebaseconsole.ViewHolder.RestaurantViewHolder;
 import com.facebook.accountkit.AccountKit;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -57,7 +49,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
-import com.google.firebase.messaging.FirebaseMessagingService;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.squareup.picasso.Picasso;
 
@@ -66,10 +57,9 @@ import java.util.Map;
 
 import dmax.dialog.SpotsDialog;
 import io.paperdb.Paper;
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class TestPage extends AppCompatActivity
+public class MainMenu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
@@ -171,15 +161,15 @@ public class TestPage extends AppCompatActivity
                         Common.restaurantSelected=adapter.getRef(position).getKey();
                         switch (Common.restaurantSelected) {
                             case "01":
-                                Intent sendpackage=new Intent(TestPage.this,SendPackage.class);
+                                Intent sendpackage=new Intent(MainMenu.this,SendPackage.class);
                                 startActivity(sendpackage);
                                 break;
                             case "02":
-                                Intent foodList=new Intent(TestPage.this,Home.class);
+                                Intent foodList=new Intent(MainMenu.this,Home.class);
                                 startActivity(foodList);
                                 break;
                             case "03":
-                                Toast.makeText(TestPage.this, "Send ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainMenu.this, "Send ", Toast.LENGTH_SHORT).show();
                                 break;
                         }
                     }
@@ -200,16 +190,16 @@ public class TestPage extends AppCompatActivity
         Paper.init(this);
 
 
-        fab = (CounterFab) findViewById(R.id.fab);
+        /*fab = (CounterFab) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent cartIntent = new Intent(TestPage.this,Cart.class);
+                Intent cartIntent = new Intent(MainMenu.this,Cart.class);
                 startActivity(cartIntent);
             }
         });
 
-        fab.setCount( new Database(this).getCountCart(Common.currentUser.getPhone()));
+        fab.setCount( new Database(this).getCountCart(Common.currentUser.getPhone()));*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -332,7 +322,7 @@ public class TestPage extends AppCompatActivity
         super.onResume();
 //        mSlider.startAutoCycle();
         loadMenu();
-        fab.setCount( new Database(this).getCountCart(Common.currentUser.getPhone()));
+//        fab.setCount( new Database(this).getCountCart(Common.currentUser.getPhone()));
         if(adapter!=null)
             adapter.startListening();
         //will be executed onResume
@@ -358,7 +348,7 @@ public class TestPage extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId()==R.id.menu_search)
-            startActivity(new Intent(TestPage.this,SearchActivity.class));
+            startActivity(new Intent(MainMenu.this,SearchActivity.class));
 
 
         return super.onOptionsItemSelected(item);
@@ -374,12 +364,12 @@ public class TestPage extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.nav_cart) {
 
-            Intent cartIntent= new Intent(TestPage.this,Cart.class);
+            Intent cartIntent= new Intent(MainMenu.this,Cart.class);
             startActivity(cartIntent);
 
         } else if (id == R.id.nav_orders) {
 
-            Intent orderIntent= new Intent(TestPage.this,OrderStatus.class);
+            Intent orderIntent= new Intent(MainMenu.this,OrderStatus.class);
             startActivity(orderIntent);
 
         } else if (id == R.id.nav_logout) {
@@ -388,7 +378,7 @@ public class TestPage extends AppCompatActivity
 
 
             //Logout
-            Intent signIn= new Intent(TestPage.this,MainActivity.class);
+            Intent signIn= new Intent(MainMenu.this,MainActivity.class);
             signIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(signIn);
 
@@ -419,7 +409,7 @@ public class TestPage extends AppCompatActivity
 
 
         else if (id==R.id.nav_fav){
-            startActivity(new Intent(TestPage.this,FavoritesActivity.class));
+            startActivity(new Intent(MainMenu.this,FavoritesActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -476,7 +466,7 @@ public class TestPage extends AppCompatActivity
     }*/
 
     private void showChangePasswordDialog() {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(TestPage.this);
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainMenu.this);
         alertDialog.setTitle("Change Name");
         alertDialog.setMessage("Please fill all information");
 
@@ -491,7 +481,7 @@ public class TestPage extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                final android.app.AlertDialog waitingDialog = new SpotsDialog(TestPage.this);
+                final android.app.AlertDialog waitingDialog = new SpotsDialog(MainMenu.this);
                 waitingDialog.show();
 
                 //UpdateName
@@ -507,7 +497,7 @@ public class TestPage extends AppCompatActivity
                             public void onComplete(@NonNull Task<Void> task) {
                                 waitingDialog.dismiss();
                                 if (task.isSuccessful())
-                                    Toast.makeText(TestPage.this, "Name was Updated", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainMenu.this, "Name was Updated", Toast.LENGTH_SHORT).show();
 
 
                             }

@@ -1,7 +1,6 @@
 package com.example.optimas.firebaseconsole;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -40,8 +39,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import dmax.dialog.SpotsDialog;
-import io.paperdb.Paper;
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends AppCompatActivity {
@@ -101,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     User localUser = dataSnapshot.getValue(User.class);
-                                    Intent homeintent = new Intent(MainActivity.this, TestPage.class);
+                                    Intent homeintent = new Intent(MainActivity.this, MainMenu.class);
                                     Common.currentUser = localUser;
                                     startActivity(homeintent);
                                     waitingDailog.dismiss();
@@ -207,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
                                                                                 @Override
                                                                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                                                                     User localUser = dataSnapshot.getValue(User.class);
-                                                                                    Intent homeintent = new Intent(MainActivity.this, TestPage.class);
+                                                                                    Intent homeintent = new Intent(MainActivity.this, MainMenu.class);
                                                                                     Common.currentUser = localUser;
                                                                                     startActivity(homeintent);
                                                                                     waitingDailog.dismiss();
@@ -229,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
                                                               @Override
                                                               public void onDataChange(DataSnapshot dataSnapshot) {
                                                                   User localUser = dataSnapshot.getValue(User.class);
-                                                                  Intent homeintent = new Intent(MainActivity.this, TestPage.class);
+                                                                  Intent homeintent = new Intent(MainActivity.this, MainMenu.class);
                                                                   Common.currentUser = localUser;
                                                                   startActivity(homeintent);
                                                                   waitingDailog.dismiss();
