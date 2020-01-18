@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:id="@+id/swipe_layout"
     android:layout_height="match_parent"
-    android:background="#676357"
+    android:background="#ffffff"
     tools:context="com.example.optimas.firebaseconsole.FoodList">
 
     <RelativeLayout

@@ -169,7 +169,12 @@ public class MainMenu extends AppCompatActivity
                                 startActivity(foodList);
                                 break;
                             case "03":
-                                Toast.makeText(MainMenu.this, "Send ", Toast.LENGTH_SHORT).show();
+                                Intent fruitsList=new Intent(MainMenu.this,Home.class);
+                                startActivity(fruitsList);
+                                break;
+                            case "04":
+                                Intent vegetablesList=new Intent(MainMenu.this,Home.class);
+                                startActivity(vegetablesList);
                                 break;
                         }
                     }
