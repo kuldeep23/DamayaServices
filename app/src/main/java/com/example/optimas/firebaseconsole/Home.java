@@ -102,9 +102,7 @@ public class Home extends AppCompatActivity
                 .build());*/
         setContentView(R.layout.activity_home);
 
-
         FirebaseMessaging.getInstance().subscribeToTopic(Common.topicName);
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Menu");
@@ -241,7 +239,6 @@ public class Home extends AppCompatActivity
                 for(DataSnapshot postSnapshot:dataSnapshot.getChildren())
                 {
                     Banner banner= postSnapshot.getValue(Banner.class);
-
                     image_list.put(banner.getName()+"@@@"+banner.getId(),banner.getImage());
                 }
                 for(String key:image_list.keySet()){

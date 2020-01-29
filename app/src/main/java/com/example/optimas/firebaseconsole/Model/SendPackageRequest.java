@@ -10,12 +10,13 @@ public class SendPackageRequest {
     private String content;
     private String contact_name;
     private String contact_number;
+    private String status;
 
 
     public SendPackageRequest() {
     }
 
-    public SendPackageRequest(String phone, String name, String pickup_address, String drop_address, String content, String contact_name, String contact_number) {
+    public SendPackageRequest(String phone, String name, String pickup_address, String drop_address, String content, String contact_name, String contact_number, String status) {
         this.phone = phone;
         this.name = name;
         this.pickup_address = pickup_address;
@@ -23,8 +24,8 @@ public class SendPackageRequest {
         this.content = content;
         this.contact_name = contact_name;
         this.contact_number = contact_number;
+        this.status = status;
     }
-
 
     public String getPhone() {
         return phone;
@@ -80,5 +81,13 @@ public class SendPackageRequest {
 
     public void setContact_number(String contact_number) {
         this.contact_number = contact_number;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

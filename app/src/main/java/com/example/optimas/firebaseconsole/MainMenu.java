@@ -33,6 +33,7 @@ import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.example.optimas.firebaseconsole.Common.Common;
 import com.example.optimas.firebaseconsole.Database.Database;
 import com.example.optimas.firebaseconsole.Interface.ItemClickListener;
+import com.example.optimas.firebaseconsole.Model.Banner;
 import com.example.optimas.firebaseconsole.Model.Category;
 import com.example.optimas.firebaseconsole.Model.MainBanner;
 import com.example.optimas.firebaseconsole.Model.Token;
@@ -93,9 +94,7 @@ public class MainMenu extends AppCompatActivity
                 .build());*/
         setContentView(R.layout.activity_home);
 
-
         FirebaseMessaging.getInstance().subscribeToTopic(Common.topicName);
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Menu");
@@ -231,26 +230,25 @@ public class MainMenu extends AppCompatActivity
 
         updateToken(FirebaseInstanceId.getInstance().getToken());
 
-      //  setupSlider();
+       setupSlider();
 
     }
 
     private void setupSlider() {
-        mSlider=(SliderLayout)findViewById(R.id.main_slider);
+
+
+        mSlider=(SliderLayout)findViewById(R.id.slider);
         image_list = new HashMap<>();
 
 
-    /*    mainBanner = database.getReference*//*("Restaurants").child(Common.restaurantSelected)
-                .child("details").child*//*("Banner");*/
+        final DatabaseReference banners = database.getReference("Banner");
 
-        final DatabaseReference mainBanner = database.getReference("Banner");
-        mainBanner.addValueEventListener(new ValueEventListener() {
+        banners.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot postSnapshot:dataSnapshot.getChildren())
                 {
-                    MainBanner banner= postSnapshot.getValue(MainBanner.class);
-
+                    Banner banner= postSnapshot.getValue(Banner.class);
                     image_list.put(banner.getName()+"@@@"+banner.getId(),banner.getImage());
                 }
                 for(String key:image_list.keySet()){
@@ -259,25 +257,24 @@ public class MainMenu extends AppCompatActivity
                     String idofFood = keySplit[1];
 
                     final TextSliderView textSliderView = new TextSliderView(getBaseContext());
-                    textSliderView
-                            .description(nameofFood)
+                    textSliderView.description(nameofFood)
                             .image(image_list.get(key))
-                            .setScaleType(BaseSliderView.ScaleType.Fit)
-                            .setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
+                            .setScaleType(BaseSliderView.ScaleType.Fit);
+                           /* .setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
                                 @Override
                                 public void onSliderClick(BaseSliderView slider) {
-                                     /*Intent intent = new Intent(Home.this,FoodDetail.class);
+                                     Intent intent = new Intent(Home.this,FoodDetail.class);
                                      intent.putExtras(textSliderView.getBundle());
-                                     startActivity(intent);*/
+                                     startActivity(intent);
                                 }
-                            });
-                           // textSliderView.bundle(new Bundle());
-                            Bundle bundle = new Bundle();
-                           textSliderView.bundle(bundle);
-                            textSliderView.getBundle().putString("extra",nameofFood);
-                            mSlider.addSlider(textSliderView);
+                            });*/
 
-                    mainBanner.removeEventListener(this);
+                    textSliderView.bundle(new Bundle());
+                    textSliderView.getBundle().putString("foodId",idofFood);
+
+                    mSlider.addSlider(textSliderView);
+
+                    banners.removeEventListener(this);
                 }
             }
 
