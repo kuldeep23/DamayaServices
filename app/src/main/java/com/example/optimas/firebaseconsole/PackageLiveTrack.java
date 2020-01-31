@@ -9,5 +9,7 @@ public class PackageLiveTrack extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_package_live_track);
+
+        
     }
 }

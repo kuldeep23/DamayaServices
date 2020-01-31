@@ -115,11 +115,11 @@ public class SendPackage extends AppCompatActivity {
                                             AlertDialog.Builder alertDialog = new AlertDialog.Builder(SendPackage.this);
                                             alertDialog.setTitle("Thank you.Order Placed!!!!");
                                             alertDialog.setMessage("Our partner will call you in a moment.");
-                                            alertDialog.setPositiveButton("Call us", new DialogInterface.OnClickListener() {
+                                            alertDialog.setPositiveButton("Live Track", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
 
-                                                    Intent home = new Intent(SendPackage.this, MainMenu.class);
+                                                    Intent home = new Intent(SendPackage.this, PackageLiveTrack.class);
                                                     startActivity(home);
                                                     dialog.dismiss();
                                                 }

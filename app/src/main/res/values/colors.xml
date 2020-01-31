@@ -18,4 +18,5 @@
     <color name="comment">#FF0000</color>
 
     <color name="bgRowBackground">#FA315B</color>
+    <color name="greyColor">#c2c2c2</color>
 </resources>

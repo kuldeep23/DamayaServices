@@ -52,7 +52,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:11.6.2'
     implementation 'com.google.firebase:firebase-messaging:11.6.2'
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
-
+    implementation 'com.google.firebase:firebase-storage:11.6.2'
     implementation 'com.stepstone.apprating:app-rating:2.0.0'
     implementation 'com.github.d-max:spots-dialog:0.7@aar'
     implementation 'io.paperdb:paperdb:2.1'
