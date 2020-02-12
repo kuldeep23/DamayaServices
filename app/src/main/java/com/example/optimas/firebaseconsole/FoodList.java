@@ -149,19 +149,31 @@ public class FoodList extends AppCompatActivity  {
 
                 if (getIntent() != null)
                     categoryId = getIntent().getStringExtra("CategoryId");
-                if (!categoryId.isEmpty() && categoryId != null) {
 
-                    if(Common.isConnectedToInternet(getBaseContext()))
-                        loadListFood(categoryId);
-                    else
-                    {
-                        Toast.makeText(FoodList.this, "Please check your connection !!", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    ///   loadFood(categoryId);
+                switch (categoryId) {
+                    case "05":
+                        Intent sendpackage=new Intent(FoodList.this,HouseHolds.class);
+                        sendpackage.putExtra("CategoryId",categoryId);
+                        startActivity(sendpackage);
+                        break;
+                    case "02":
+                        if (!categoryId.isEmpty() && categoryId != null) {
 
+                            if(Common.isConnectedToInternet(getBaseContext()))
+                                loadListFood(categoryId);
+                            else
+                            {
+                                Toast.makeText(FoodList.this, "Please check your connection !!", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                            ///   loadFood(categoryId);
+
+
+                        }
+                        break;
 
                 }
+
 
             }
         });

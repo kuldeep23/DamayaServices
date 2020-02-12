@@ -175,6 +175,10 @@ public class MainMenu extends AppCompatActivity
                                 Intent vegetablesList=new Intent(MainMenu.this,Home.class);
                                 startActivity(vegetablesList);
                                 break;
+                            case "05":
+                                Intent houseHold=new Intent(MainMenu.this,HouseHolds.class);
+                                startActivity(houseHold);
+                                break;
                             case "07":
                                 Intent uploadList=new Intent(MainMenu.this,UploadList.class);
                                 startActivity(uploadList);
